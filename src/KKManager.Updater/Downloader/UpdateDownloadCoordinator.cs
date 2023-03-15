@@ -170,9 +170,9 @@ namespace KKManager.Updater.Downloader
 							x.DownloadSources.ContainsKey(updateSource.Source));
 
 						//if current download size is less than 100 MB
-						if((getCurrentDLSize().GetKbSize() + 
-							currentDownloadItem?.TotalSize.GetKbSize() ?? 0) > 
-							new FileSize(1000 * 100).GetKbSize()) continue;
+						if((getCurrentDLSize() +
+							currentDownloadItem?.TotalSize ?? new FileSize(0)) >
+							new FileSize(1000 * 100)) continue;
 
 						if(currentDownloadItem != null)
 						{
